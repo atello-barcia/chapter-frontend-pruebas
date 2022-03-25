@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, View } from "react-native"
 import { Character } from "./character/character"
 import { getCharacters } from '../../api/marvel.api'
-import { CharacterType } from "../types/character.type"
 
 export const CharacterList = () => {
 
