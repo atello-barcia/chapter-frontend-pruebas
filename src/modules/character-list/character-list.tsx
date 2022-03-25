@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
-import { View } from "react-native"
-// import { Character } from "./character.loc"
-import { getCharacters } from '../../api/rickandmorty.api'
+import React, { useEffect, useState } from "react"
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, View } from "react-native"
+import { Character } from "./character/character"
+import { getCharacters } from '../../api/marvel.api'
+import { CharacterType } from "../types/character.type"
 
 export const CharacterList = () => {
 
@@ -13,13 +14,27 @@ export const CharacterList = () => {
 
     const handleRequest = async () => {
         const response = await getCharacters()
-        console.log('response => ', response)
         setCharacters(response)
     }
 
+    const renderItem = ({ item }: any) => (
+        <Character character={item} />
+    );
+
     return (
-        <View>
-            {/* <Character></Character> */}
-        </View>
+        <SafeAreaView style={styles.container}>
+            <FlatList
+                data={characters}
+                renderItem={renderItem}
+                keyExtractor={(item: any) => item._id}
+            />
+        </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginTop: StatusBar.currentHeight || 0,
+    }
+});
