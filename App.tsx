@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { Button, Image, StyleSheet, Text, View } from 'react-native'
+import { Button, Image, StyleSheet, Text, View, Platform, SafeAreaView } from 'react-native'
+import { Header } from './src/modules/header/header';
 
 export default function App() {
 
@@ -9,7 +9,8 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <Header></Header>
       <View>
         <Image
           style={{
@@ -37,17 +38,16 @@ export default function App() {
           accessibilityLabel="Learn more about this purple button"
         />
       </View>
-
-      <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    
+    flex: 1,
     backgroundColor: '#fafafa',
+    paddingTop: Platform.OS === 'android' ? 25 : 0
   },
   text: {
     color: 'blue',
