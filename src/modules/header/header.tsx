@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from "react-native"
 import { CreateCharacter } from './create-character'
 
-export const Header = () => {
+export const Header = (props: any) => {
 
-    const [modalVisible, setModalVisible] = useState(false);
+    const { modalVisible, setModalVisible } = props
 
     const _onNewCharacter = () => {
         // opens up a modal
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#F30020',
         borderRadius: 4,
-        
+
     },
     container: {
         margin: 12

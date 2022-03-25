@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, View } from "react-native"
 import { Character } from "./character/character"
-import { getCharacters } from '../../api/marvel.api'
 
-export const CharacterList = () => {
+export const CharacterList = (props: any) => {
 
-    const [characters, setCharacters] = useState(() => [])
-
-    useEffect(() => {
-        handleRequest()
-    }, [])
-
-    const handleRequest = async () => {
-        const response = await getCharacters()
-        setCharacters(response)
-    }
+    const { characters } = props
 
     const renderItem = ({ item }: any) => (
         <Character character={item} />
