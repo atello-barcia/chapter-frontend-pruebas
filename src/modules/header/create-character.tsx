@@ -28,7 +28,7 @@ export const CreateCharacter = (props: CreateCharacterType) => {
                 body: description,
                 image: image,
                 category: 'main',
-                idAuthor: 2,
+                idAuthor: 9,
                 createdAt: currentDate,
                 updatedAt: currentDate
             }
